@@ -10,6 +10,11 @@ def fit(X, Y):
 def main():
     # Load the data
     X, Y = load_data(FILENAME)
+    # Visualize the data
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection = '3d')
+    ax.scatter(X[:, 0], X[:, 1], Y)
+    plt.show()
     # We need to append a column containing all 1's to account for the bias term
     X = np.hstack([np.ones((X.shape[0], 1)), X])
     # Fit the data with linear regression
