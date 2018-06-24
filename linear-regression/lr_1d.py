@@ -16,6 +16,12 @@ def fit(X, Y):
 
     return a, b
 
+def plot_fit(X, Y, Yhat):
+    # Visuzlize the fit of the data
+    plt.scatter(X, Y)
+    plt.plot(X, Yhat, color = 'r')
+    plt.show()
+
 def main():
     # Load the data from file
     X, Y = load_data(FILENAME)
@@ -27,10 +33,7 @@ def main():
     Yhat = a*X + b
     # Calculate the R-squared metric
     print('R^2 is ', r_squared(Yhat, Y))
-    # Visuzlize the fit of the data
-    plt.scatter(X, Y)
-    plt.plot(X, Yhat, color = 'r')
-    plt.show()
+    plot_fit(X, Y, Yhat)
 
 if __name__ == '__main__':
     main()
